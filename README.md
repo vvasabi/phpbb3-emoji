@@ -1,6 +1,6 @@
 # Convert emoji into HTML images for phpBB3
 
-This is a work in progress MOD for phpBB3 that converts iOS emojis into HTML images. This MOD is based on dpaanlka’s work posted on [phpBB forums](https://www.phpbb.com/community/viewtopic.php?f=70&amp;t=2111155).
+This is a work in progress MOD for phpBB3 that converts iOS emojis into HTML images. This MOD is based on dpaanlka’s work posted on [phpBB forums](https://www.phpbb.com/community/viewtopic.php?f=70&t=2111155).
 
 Emoji images are mostly from [github/gemoji](https://github.com/github/gemoji). Any_SoftbankSMS.txt is from [Apple](http://opensource.apple.com/source/ICU/ICU-461.13/icuSources/data/translit/Any_SoftbankSMS.txt?txt).
 
