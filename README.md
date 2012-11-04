@@ -48,6 +48,17 @@ function smiley_text($text, $force_option = false)
 	$text = convert_emoji($text);
 ```
 
+### 4. Update Stylesheet
+
+Emoji images come at 64px x 64px, which would be too big. Open your theme’s `common.css`, which locates at `phpBB/styles/<theme>/theme/common.css`, and add at the bottom:
+
+```css
+img.emoji {
+  width: 16px;
+  height: 16px;
+}
+```
+
 ## License
 
 All images and Any_SoftbankSMS.txt:
