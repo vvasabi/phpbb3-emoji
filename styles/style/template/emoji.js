@@ -874,10 +874,11 @@ jQuery(function() {
 	}
 	function emoji2img(str) {
 		for (var character in EMOJI_MAP) {
+			var decoded = decodeURIComponent(character);
 			var file = EMOJI_MAP[character];
 			var img = '<img src="./images/emoji/' + file + '" '
-									+ 'alt="' + character + '" class="emoji" />';
-			str = str.replace(decodeURIComponent(character), img);
+						+ 'alt="' + decoded + '" class="emoji" />';
+			str = str.replace(decodeURIComponent(decoded), img);
 		}
 		return str;
 	}
