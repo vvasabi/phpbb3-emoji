@@ -59,12 +59,13 @@ for ($i = 0; $i < strlen($content); ) {
     $filename = strtolower($map[$zeroes_trimmed]);
   }
 
+  /*
   $filename .= '.png';
   if (!file_exists('unicode-emoji-images/' . $filename)) {
     echo 'File not found: #' . $count . ' ' . $utf32 . ' ' . $char . ' '
       . utf8_to_str($char) . ' ' . $filename  . PHP_EOL;
     die();
-  }
+  }*/
 
   /*
   echo "\t\t'";
@@ -72,9 +73,11 @@ for ($i = 0; $i < strlen($content); ) {
   echo "'," . PHP_EOL;
   copy('unicode-emoji-images/' . $filename, 'symbols/' . $filename);*/
 
+  /*
   echo "\t\t\"";
   echo utf8_to_str($char);
-  echo '",' . PHP_EOL;
+  echo '",' . PHP_EOL;*/
+  echo "'" . urlencode($char) . "': 'symbols/$filename.png'," . PHP_EOL;
 
   $i += $length;
   $count++;
