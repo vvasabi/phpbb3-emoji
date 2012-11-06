@@ -52,8 +52,8 @@ Emoji images come at 64px x 64px, which would be too big. Open `phpBB/styles/<yo
 
 ```css
 img.emoji {
-  width: 16px;
-  height: 16px;
+	width: 1.5em;
+	height: 1.5em;
 }
 ```
 
