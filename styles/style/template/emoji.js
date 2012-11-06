@@ -5,6 +5,13 @@
  */
 
 jQuery(function() {
+	// do nothing if user is using an iOS device
+	var ua = navigator.userAgent.toLowerCase();
+	if (ua.indexOf('iphone') != -1 || ua.indexOf('ipad') != -1
+			|| ua.indexOf('ipod') != -1) {
+		return;
+	}
+
 	var EMOJI_MAP = {
 		// People
 		'%F0%9F%98%84': 'people/e415.png',
