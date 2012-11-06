@@ -5,7 +5,7 @@
  */
 
 jQuery(function() {
-  var EMOJI_MAP = {
+	var EMOJI_MAP = {
 		// People
 		'%F0%9F%98%84': 'people/e415.png',
 		'%F0%9F%98%83': 'people/e057.png',
@@ -860,7 +860,7 @@ jQuery(function() {
 		'%F0%9F%94%B7': 'symbols/1f537.png',
 		'%F0%9F%94%B8': 'symbols/1f538.png',
 		'%F0%9F%94%B9': 'symbols/1f539.png'
-  };
+	};
 	var selectors = [
 		'#page-body .post',
 		'#page-body .rules',
