@@ -23,6 +23,20 @@ foreach ($lines as $line) {
   $key = str_replace(array('\U', '\u'), '', $tokens[0]);
   $map[$key] = substr($tokens[1], 2);
 }
+
+// load unicode character names
+$raw = file_get_contents('NamesList.txt');
+$character_names = array();
+$lines = split(PHP_EOL, $raw);
+foreach ($lines as $line) {
+  $line = trim(preg_replace('/@.*/', '', $line));
+  $tokens = split("\t", $line);
+  if (!$tokens || count($tokens) != 2) {
+    continue;
+  }
+  $character_names[$tokens[0]] = $tokens[1];
+}
+
 $content = file_get_contents('symbols.txt');
 $count = 0;
 for ($i = 0; $i < strlen($content); ) {
@@ -77,7 +91,15 @@ for ($i = 0; $i < strlen($content); ) {
   echo "\t\t\"";
   echo utf8_to_str($char);
   echo '",' . PHP_EOL;*/
-  echo "'" . urlencode($char) . "': 'symbols/$filename.png'," . PHP_EOL;
+  //echo "'" . urlencode($char) . "': 'symbols/$filename.png'," . PHP_EOL;
+
+  $name_key = sprintf('%04s', $zeroes_trimmed);
+  if (!isset($character_names[$name_key])) {
+    echo ('Name not found: ' . urlencode($char) . ' ' . $char . PHP_EOL);
+  } else {
+    echo "'" . urlencode($char) . "': '" . $character_names[$name_key]
+      . "'," . PHP_EOL;
+  }
 
   $i += $length;
   $count++;
