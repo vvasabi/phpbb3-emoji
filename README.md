@@ -25,32 +25,27 @@ to:
 ### 2. Copy Files
 
 * Copy `images/emoji` into `phpBB/images`
-* Copy `includes/covert_emoji.php` into `phpBB/includes`
+* Copy `styles/style/template/emoji.js` into `phpBB/styles/<your-style>/template`
+* Copy `styles/style/template/jquery-1.8.2.min.js` into `phpBB/styles/<your-style>/template` (**skip this step if your style already comes with jQuery!**)
 
-### 3. Add Function Call
+### 3. Add JavaScript Tags
 
-Open `phpBB/includes/functions_content.php`, change:
+Open `phpBB/styles/<your-style>/template/overall_header.html`, before
 
-```php
-function smiley_text($text, $force_option = false)
-{
-	global $config, $user, $phpbb_root_path;
+```html
+<link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
 ```
 
-to
+add
 
-```php
-function smiley_text($text, $force_option = false)
-{
-	global $config, $user, $phpbb_root_path;
-
-	include_once dirname(__FILE__) . '/convert_emoji.php';
-	$text = convert_emoji($text);
+```html
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/emoji.js"></script>
 ```
 
 ### 4. Update Stylesheet
 
-Emoji images come at 64px x 64px, which would be too big. Open your theme’s `common.css`, which locates at `phpBB/styles/<theme>/theme/common.css`, and add at the bottom:
+Emoji images come at 64px x 64px, which would be too big. Open `phpBB/styles/<your-style>/theme/common.css` and add at the bottom:
 
 ```css
 img.emoji {
@@ -58,6 +53,10 @@ img.emoji {
   height: 16px;
 }
 ```
+
+### 5. Clear Cache
+
+Go to phpBB admin and click clear cache.
 
 ## License
 
