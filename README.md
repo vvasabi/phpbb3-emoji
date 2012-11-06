@@ -26,7 +26,8 @@ to:
 
 * Copy `images/emoji` into `phpBB/images`
 * Copy `styles/style/template/emoji.js` into `phpBB/styles/<your-style>/template`
-* Copy `styles/style/template/jquery-1.8.2.min.js` into `phpBB/styles/<your-style>/template` \(**Skip this step if your style already comes with jQuery!**\)
+* Copy `styles/style/template/jquery-1.8.2.min.js` into `phpBB/styles/<your-style>/template`  
+  **Skip this step if your style already comes with jQuery!**
 
 ### 3. Add JavaScript Tags
 
