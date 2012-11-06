@@ -869,23 +869,22 @@ jQuery(function() {
 		'%F0%9F%94%B9': 'symbols/1f539.png'
 	};
 	var selectors = [
+		'#page-body h2',
 		'#page-body .post',
 		'#page-body .rules',
 		'#page-body .forums .row',
 		'#page-body .topics .row'
 	];
-	for (var i in selectors) {
-	 jQuery(selectors[i]).each(function() {
-			jQuery(this).html(emoji2img(jQuery(this).html()));
-		});
-	}
+	jQuery(selectors.join()).each(function() {
+		jQuery(this).html(emoji2img(jQuery(this).html()));
+	});
 	function emoji2img(str) {
 		for (var character in EMOJI_MAP) {
 			var decoded = decodeURIComponent(character);
 			var file = EMOJI_MAP[character];
 			var img = '<img src="./images/emoji/' + file + '" '
 						+ 'alt="' + decoded + '" class="emoji" />';
-			str = str.replace(decodeURIComponent(decoded), img);
+			str = str.replace(new RegExp(decoded, 'g'), img);
 		}
 		return str;
 	}
