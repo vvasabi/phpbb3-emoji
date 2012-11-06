@@ -1735,7 +1735,7 @@ jQuery(function() {
 		jQuery(this).html(emoji2img(jQuery(this).html()));
 	});
 	function emoji2img(str) {
-		for (var character in EMOJI_MAP) {
+		for (var character in EMOJI_IMAGES) {
 			var decoded = decodeURIComponent(character);
 			var file = EMOJI_IMAGES[character];
 			var name = EMOJI_NAMES[character];
